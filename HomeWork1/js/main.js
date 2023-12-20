@@ -11,11 +11,24 @@ console.log(Math.min(...arr));
 const createCounter = () => {
   let count = 0;
   return {
-    increment: count++,
-    decrement: count--,
+    increment: function () {
+      count++;
+    },
+    decrement: function () {
+      count--;
+    },
+    getCount: function () {
+      return count;
+    }
   };
 };
-console.log(createCounter());
+const count = createCounter();
+console.log(count.getCount());
+count.increment();
+console.log(count.getCount());
+count.decrement();
+console.log(count.getCount());
+
 
 // 3) Напишите рекурсивную функцию findElementByClass, которая принимает корневой элемент дерева DOM и название
 //  класса в качестве аргументов и возвращает первый найденный элемент с указанным классом в этом дереве.
