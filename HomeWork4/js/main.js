@@ -37,3 +37,31 @@ function deleteUser(userId) {
       console.error(error);
     });
 }
+
+// Необходимо реализовать отрисовку 10 картинок собак из API https://dog.ceo/dog-api/ с интервалом в 3 секунды.
+
+fetch('https://dog.ceo/api/breeds/image/random/10')
+  .then(response => response.json())
+  .then(data => {
+    const dogImages = data.message;
+
+    let index = 0;
+    const imageContainer = document.getElementById('image-container');
+
+    const intervalId = setInterval(() => {
+      if (index >= dogImages.length) {
+        clearInterval(intervalId);
+        return;
+      }
+
+      const imageUrl = dogImages[index];
+
+      const imageElement = document.createElement('img');
+      imageElement.classList.add("image")
+      imageElement.src = imageUrl;
+
+      imageContainer.appendChild(imageElement);
+
+      index++;
+    }, 3000);
+  });

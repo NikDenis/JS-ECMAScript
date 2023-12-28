@@ -14,3 +14,16 @@
   justify-content: space-between;
   gap: 10px;
 }
+
+.image-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  max-width: 200px;
+  height: 200px;
+  width: 100%;
+}
